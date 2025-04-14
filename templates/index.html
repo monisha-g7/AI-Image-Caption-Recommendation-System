@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Caption Recommender</title>
+</head>
+<body style="font-family: Arial; text-align: center; margin-top: 40px;">
+    <h2>📸 AI Image Caption Recommender using CLIP</h2>
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Upload Image</button>
+    </form>
+    {% if caption %}
+        <h3>Best Caption:</h3>
+        <p><strong>{{ caption }}</strong> (Score: {{ score | round(4) }})</p>
+        <img src="{{ url_for('static', filename='../uploads/' + image) }}" width="300">
+    {% endif %}
+</body>
+</html>
